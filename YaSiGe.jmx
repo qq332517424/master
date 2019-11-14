@@ -1,0 +1,2030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.0 r1840935">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="雅思哥" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">test.user-center.ieltsbro.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="=====上传头像=====" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">source</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="正确密码登录" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;appVersion&quot;: &quot;9.0.0_A_Beta3&quot;,&#xd;
+	&quot;channel&quot;: 1,&#xd;
+	&quot;deviceName&quot;: &quot;Xiaomi MI CC 9&quot;,&#xd;
+	&quot;deviceType&quot;: &quot;android&quot;,&#xd;
+	&quot;deviceid&quot;: &quot;f42bd151-d11b-4623-89ab-9f7cc483655c&quot;,&#xd;
+	&quot;loginType&quot;: 0,&#xd;
+	&quot;mobile&quot;: &quot;13700137001&quot;,&#xd;
+	&quot;password&quot;: &quot;111111&quot;,&#xd;
+	&quot;pushToken&quot;: &quot;&quot;,&#xd;
+	&quot;systemVersion&quot;: &quot;9&quot;,&#xd;
+	&quot;zone&quot;: 86&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/apiLogin/passwordLogin</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/apiLogin/passwordLogin</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="" elementType="Header">
+                  <stringProp name="Header.name">Content-Type</stringProp>
+                  <stringProp name="Header.value">application/json</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="userId正则提取器" enabled="false">
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">userId</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;userId&quot;: &quot;(.*?)&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">0</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="token提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.token</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="userId提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.userId</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传头像" enabled="true">
+            <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+              <collectionProp name="HTTPFileArgs.files">
+                <elementProp name="C:\20191028184403.png" elementType="HTTPFileArg">
+                  <stringProp name="File.path">C:\20191028184403.png</stringProp>
+                  <stringProp name="File.paramname">file</stringProp>
+                  <stringProp name="File.mimetype">image/png</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding">gbk</stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/userAvatarAudit</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/base/dict/shareAppImage
+‪C:\Users\18681\Pictures\Saved Pictures\微信图片_20191028184403.png
+C:\Users\18681\Pictures\Saved Pictures</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="2034187099">&quot;message&quot;:&quot;您近期修改过头像，请稍后再试！&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="=====登录=====" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">source</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="错误密码登录" enabled="false">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;appVersion&quot;: &quot;9.0.0_A_Beta3&quot;,&#xd;
+	&quot;channel&quot;: 1,&#xd;
+	&quot;deviceName&quot;: &quot;Xiaomi MI CC 9&quot;,&#xd;
+	&quot;deviceType&quot;: &quot;android&quot;,&#xd;
+	&quot;deviceid&quot;: &quot;f42bd151-d11b-4623-89ab-9f7cc483655c&quot;,&#xd;
+	&quot;loginType&quot;: 0,&#xd;
+	&quot;mobile&quot;: &quot;18681434492&quot;,&#xd;
+	&quot;password&quot;: &quot;123456&quot;,&#xd;
+	&quot;pushToken&quot;: &quot;&quot;,&#xd;
+	&quot;systemVersion&quot;: &quot;9&quot;,&#xd;
+	&quot;zone&quot;: 86&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/apiLogin/passwordLogin</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/apiLogin/passwordLogin</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-1044164348">&quot;message&quot;:&quot;密码错误&quot; || 账号密码错误次数过多，请稍后再试</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="不存在的账号登录" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;appVersion&quot;: &quot;9.0.0_A_Beta3&quot;,&#xd;
+	&quot;channel&quot;: 1,&#xd;
+	&quot;deviceName&quot;: &quot;Xiaomi MI CC 9&quot;,&#xd;
+	&quot;deviceType&quot;: &quot;android&quot;,&#xd;
+	&quot;deviceid&quot;: &quot;f42bd151-d11b-4623-89ab-9f7cc483655c&quot;,&#xd;
+	&quot;loginType&quot;: 0,&#xd;
+	&quot;mobile&quot;: &quot;13026682344&quot;,&#xd;
+	&quot;password&quot;: &quot;123456&quot;,&#xd;
+	&quot;pushToken&quot;: &quot;&quot;,&#xd;
+	&quot;systemVersion&quot;: &quot;9&quot;,&#xd;
+	&quot;zone&quot;: 86&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/apiLogin/passwordLogin</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/apiLogin/passwordLogin</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-664974924">&quot;message&quot;:&quot;手机号码没有注册过账号&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="=====首页=====" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">source</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="-----首页搜索页-----" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取推荐牛人列表" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/userInfo/geniusList/5</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/geniusList/5</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+                <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="搜索不存在的数据" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;curPage&quot;:1,&quot;userName&quot;:&quot;哇哈哈&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="true">
+                <stringProp name="JSON_PATH">$.content.list</stringProp>
+                <stringProp name="EXPECTED_VALUE">[]</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="搜索存在的数据" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;curPage&quot;:1,&quot;userName&quot;:&quot;修改昵称&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="true">
+                <stringProp name="JSON_PATH">$.content.list[0].userName</stringProp>
+                <stringProp name="EXPECTED_VALUE">修改昵称</stringProp>
+                <boolProp name="JSONVALIDATION">true</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="搜索的结果数据较多" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&quot;curPage&quot;:2,&quot;userName&quot;:&quot;必过&quot;}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/ysgUserSimpleInfoPageList</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="首页口语录音列表" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/base/oralMemory/homeOralMemoryList</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/oralMemory/homeOralMemoryList</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="牛人录音资讯" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;curPage&quot;:1,&quot;limit&quot;:20}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/base/information/recommend</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/information/recommend</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="=====个人中心=====" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">source</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取用户信息" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+                <elementProp name="source" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">source</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/getYsgUserBasicInfo</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/getYsgUserBasicInfo</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取个人信息页面数据" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="token" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">${token}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">token</stringProp>
+                </elementProp>
+                <elementProp name="source" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">0</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                  <stringProp name="Argument.name">source</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/getYsgUserPersonalInfo</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/getYsgUserPersonalInfo</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改个人昵称" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;userName&quot;:&quot;雅思，哥必过&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/userNameAudit</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/userNameAudit</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="739631496">&quot;message&quot;:&quot;success&quot; || 您近期修改过昵称，请稍后再试！</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改位置信息、考场、留学地、考试时间" enabled="true">
+            <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+              <collectionProp name="HTTPFileArgs.files">
+                <elementProp name="" elementType="HTTPFileArg">
+                  <stringProp name="File.path"></stringProp>
+                  <stringProp name="File.paramname">file</stringProp>
+                  <stringProp name="File.mimetype">image/png</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;currentLocation&quot;: &quot;深圳市&quot;,&#xd;
+	&quot;destinationCountryId&quot;: 3,&#xd;
+	&quot;examLocationId&quot;: 10,&#xd;
+	&quot;examDateId&quot;: 7,&#xd;
+	&quot;examType&quot;: 0&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改目标分数、上次成绩" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;targetListenGrade&quot;: 1.0,&#xd;
+	&quot;targetReadGrade&quot;: 2.5,&#xd;
+	&quot;targetOralGrade&quot;: 3.0,&#xd;
+	&quot;targetWriteGrade&quot;: 4.0,&#xd;
+	&quot;targetAverageGrade&quot;: 2.5,&#xd;
+	&quot;listenGrade&quot;: 1.0,&#xd;
+	&quot;readGrade&quot;: 1.0,&#xd;
+	&quot;writeGrade&quot;: 1.0,&#xd;
+	&quot;oralGrade&quot;: 1.0,&#xd;
+	&quot;averageGrade&quot;: 1.0&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+          <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="-----收藏列表-----" enabled="true">
+            <boolProp name="TransactionController.includeTimers">false</boolProp>
+            <boolProp name="TransactionController.parent">false</boolProp>
+          </TransactionController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="推文列表" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/user/collectRecord/collectionTweetsPageList?curPage=1&amp;limit=20</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/collectRecord/collectionTweetsPageList?curPage=1&amp;limit=20</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="收藏口语话题列表" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/user/collectRecord/collectionStudyOralTopicPageList?curPage=1&amp;limit=20</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/collectRecord/collectionStudyOralTopicPageList?curPage=1&amp;limit=20</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="收藏口语录音列表" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/user/collectRecord/collectionOralPracticePageList?curPage=1&amp;limit=20</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/collectRecord/collectionOralPracticePageList?curPage=1&amp;limit=20</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+                <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="收藏口语回忆列表" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/user/collectRecord/collectionOralMemoryPageList?curPage=1&amp;limit=20</stringProp>
+              <stringProp name="HTTPSampler.method">GET</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/collectRecord/collectionOralMemoryPageList?curPage=1&amp;limit=20</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+                <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="笔试回忆列表" enabled="false">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">{&#xd;
+	&quot;targetListenGrade&quot;: 1.0,&#xd;
+	&quot;targetReadGrade&quot;: 2.5,&#xd;
+	&quot;targetOralGrade&quot;: 3.0,&#xd;
+	&quot;targetWriteGrade&quot;: 4.0,&#xd;
+	&quot;targetAverageGrade&quot;: 2.5,&#xd;
+	&quot;listenGrade&quot;: 1.0,&#xd;
+	&quot;readGrade&quot;: 1.0,&#xd;
+	&quot;writeGrade&quot;: 1.0,&#xd;
+	&quot;oralGrade&quot;: 1.0,&#xd;
+	&quot;averageGrade&quot;: 1.0&#xd;
+}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/updateYsgUserPersonalInfo</stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+                <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+              <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+                <stringProp name="JSON_PATH">$.</stringProp>
+                <stringProp name="EXPECTED_VALUE"></stringProp>
+                <boolProp name="JSONVALIDATION">false</boolProp>
+                <boolProp name="EXPECT_NULL">false</boolProp>
+                <boolProp name="INVERT">false</boolProp>
+                <boolProp name="ISREGEX">true</boolProp>
+              </JSONPathAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="我的回忆列表" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;curPage&quot;:1,&quot;limit&quot;:20}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/base/oralMemory/myOralMemory</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/oralMemory/myOralMemory</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="userID提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">userID</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.list[0].userId</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="跳转到用户主页" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/getYsgUserHomePage/${userID}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/getYsgUserHomePage/634134493942386688</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+              <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+              <stringProp name="JSON_PATH">$.</stringProp>
+              <stringProp name="EXPECTED_VALUE"></stringProp>
+              <boolProp name="JSONVALIDATION">false</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="=====我的主页=====" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">false</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer ${token}</stringProp>
+              </elementProp>
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">source</stringProp>
+                <stringProp name="Header.value">0</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="我的主页" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/getYsgUserHomePage/${userId}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/getYsgUserHomePage/634134493942386688</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="true">
+              <stringProp name="JSON_PATH">$.content.userId</stringProp>
+              <stringProp name="EXPECTED_VALUE">${userId}</stringProp>
+              <boolProp name="JSONVALIDATION">true</boolProp>
+              <boolProp name="EXPECT_NULL">false</boolProp>
+              <boolProp name="INVERT">false</boolProp>
+              <boolProp name="ISREGEX">true</boolProp>
+            </JSONPathAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="获取我关注的列表数据" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/userInfo/userAttentionPageList?userId=${userId}&amp;curPage=1&amp;limit=20</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/userInfo/userAttentionPageList?userId=634134493942386688&amp;curPage=1&amp;limit=20</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">16</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="attentionUserId提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">attentionUserId</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.list[0].userId</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+            <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="attentionUserName提取器" enabled="true">
+              <stringProp name="JSONPostProcessor.referenceNames">attentionUserName</stringProp>
+              <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.list[0].userName</stringProp>
+              <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+            </JSONPostProcessor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="取消关注用户" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;attentionUserId&quot;:&quot;${attentionUserId}&quot;,&quot;attentionUserName&quot;:&quot;${attentionUserId}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/user/attention/notAttention</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/attention/notAttention</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="-702312092">&quot;content&quot;:3</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="关注用户" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&quot;attentionUserId&quot;:&quot;${attentionUserId}&quot;,&quot;attentionUserName&quot;:&quot;${attentionUserName}&quot;}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/hcp/user/attention/attention</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/user/attention/attention</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+              <collectionProp name="Asserion.test_strings">
+                <stringProp name="1345173364">&quot;content&quot;:1  || 2</stringProp>
+              </collectionProp>
+              <stringProp name="Assertion.custom_message"></stringProp>
+              <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+              <boolProp name="Assertion.assume_success">false</boolProp>
+              <intProp name="Assertion.test_type">2</intProp>
+            </ResponseAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="推荐朋友页" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/hcp/base/base/dict/shareAppImage</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/base/dict/shareAppImage</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+            <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+            <stringProp name="JSON_PATH">$.</stringProp>
+            <stringProp name="EXPECTED_VALUE"></stringProp>
+            <boolProp name="JSONVALIDATION">false</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="退出登录" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="token" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${token}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">token</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">test.user-center.ieltsbro.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path">/hcp/sso/logout?source=0</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">
+http://test.user-center.ieltsbro.com/hcp/sso/logout?source=0&amp;token=</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
+              <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="AssertionVisualizer" testclass="ResultCollector" testname="断言结果" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Authorization</stringProp>
+              <stringProp name="Header.value">Bearer ${token}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">source</stringProp>
+              <stringProp name="Header.value">0</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP请求默认值" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">test.user-center.ieltsbro.com</stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">utf-8</stringProp>
+          <stringProp name="HTTPSampler.path"></stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="正确密码登录" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;appVersion&quot;: &quot;9.0.0_A_Beta3&quot;,&#xd;
+	&quot;channel&quot;: 1,&#xd;
+	&quot;deviceName&quot;: &quot;Xiaomi MI CC 9&quot;,&#xd;
+	&quot;deviceType&quot;: &quot;android&quot;,&#xd;
+	&quot;deviceid&quot;: &quot;f42bd151-d11b-4623-89ab-9f7cc483655c&quot;,&#xd;
+	&quot;loginType&quot;: 0,&#xd;
+	&quot;mobile&quot;: &quot;13700137001&quot;,&#xd;
+	&quot;password&quot;: &quot;111111&quot;,&#xd;
+	&quot;pushToken&quot;: &quot;&quot;,&#xd;
+	&quot;systemVersion&quot;: &quot;9&quot;,&#xd;
+	&quot;zone&quot;: 86&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/hcp/apiLogin/passwordLogin</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/apiLogin/passwordLogin</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="userId正则提取器" enabled="false">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">userId</stringProp>
+            <stringProp name="RegexExtractor.regex">&quot;userId&quot;: &quot;(.*?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default"></stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="token提取器" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">token</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.token</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1925078660">&quot;message&quot;:&quot;success&quot;</stringProp>
+              <stringProp name="-161783868">&quot;status&quot;:0</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <JSONPostProcessor guiclass="JSONPostProcessorGui" testclass="JSONPostProcessor" testname="userId提取器" enabled="true">
+            <stringProp name="JSONPostProcessor.referenceNames">userId</stringProp>
+            <stringProp name="JSONPostProcessor.jsonPathExprs">$.content.userId</stringProp>
+            <stringProp name="JSONPostProcessor.match_numbers"></stringProp>
+          </JSONPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="上传头像" enabled="true">
+          <elementProp name="HTTPsampler.Files" elementType="HTTPFileArgs">
+            <collectionProp name="HTTPFileArgs.files">
+              <elementProp name="C:\20191028184403.png" elementType="HTTPFileArg">
+                <stringProp name="File.path">C:\20191028184403.png</stringProp>
+                <stringProp name="File.paramname">file</stringProp>
+                <stringProp name="File.mimetype">image/png</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">gbk</stringProp>
+          <stringProp name="HTTPSampler.path">/hcp/userInfo/userAvatarAudit</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">true</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="TestPlan.comments">http://test.user-center.ieltsbro.com/hcp/base/base/dict/shareAppImage
+‪C:\Users\18681\Pictures\Saved Pictures\微信图片_20191028184403.png
+C:\Users\18681\Pictures\Saved Pictures</stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="2034187099">&quot;message&quot;:&quot;您近期修改过头像，请稍后再试！&quot;</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+          <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BeanShell断言" enabled="false">
+            <stringProp name="BeanShellAssertion.query">//import alibaba.fastjson
+//import mysql
+String res=prev.getResponseDataAsString();
+log.info(&quot;响应参数：&quot;+res);
+//1、获取响应数据字符串接收
+//2、导包，使用阿里巴巴的fastjson工具类
+//3、对象转换str--&gt;json
+//4、json获取key-value： jsonp.get(&quot;status&quot;)
+String sql=&quot;&quot;;
+
+if(true){
+	if ( &quot;您近期修改过昵称，请稍后再试&quot;.equals(&quot;您近期修改过昵称1，请稍后再试&quot;)){
+		Failure =false;
+		FailureMessage =&quot;断言成功&quot;;
+	}else{
+		FailureMessage =&quot;断言失败&quot;;
+	}
+}
+log.info(FailureMessage);
+
+</stringProp>
+            <stringProp name="BeanShellAssertion.filename"></stringProp>
+            <stringProp name="BeanShellAssertion.parameters"></stringProp>
+            <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+          </BeanShellAssertion>
+          <hashTree/>
+          <JSONPathAssertion guiclass="JSONPathAssertionGui" testclass="JSONPathAssertion" testname="JSON断言" enabled="false">
+            <stringProp name="JSON_PATH">$.</stringProp>
+            <stringProp name="EXPECTED_VALUE"></stringProp>
+            <boolProp name="JSONVALIDATION">false</boolProp>
+            <boolProp name="EXPECT_NULL">false</boolProp>
+            <boolProp name="INVERT">false</boolProp>
+            <boolProp name="ISREGEX">true</boolProp>
+          </JSONPathAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
