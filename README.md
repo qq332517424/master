@@ -1,4 +1,3 @@
 # master
 
-
-readme
+jmeter+jenkins+github自动化
